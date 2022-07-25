@@ -18,6 +18,14 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="tetris.c" />
+    <ClCompile Include="tetris_Blocks.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="psi_tetirs_Blocks.h" />
+    <ClInclude Include="psi_tetris_Controller.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{A636DEF2-0BFF-4663-955D-434E27B54BD3}</ProjectGuid>
@@ -142,8 +150,6 @@
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
