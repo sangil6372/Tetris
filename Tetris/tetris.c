@@ -1,8 +1,18 @@
+
+#include "psi_tetirs_Blocks.h"
+#include "psi_tetris_consoleCursor.h"
+#include "psi_tetris_Controller.h"
+#include "psi_tetris_Screen.h"
+
+
 #include <stdio.h>
-#include <conio.h>	//콘솔 입출력 함수 제공 
-#include <Windows.h> // 윈도우 매크로, 함수, API 함수 정의 등등
-#include <time.h> //난수 생성
-#include <mmsystem.h> // 배경음악 관련 헤더파일
+#include <stdlib.h>
+#include <time.h>
+#include <Windows.h>
+#include <conio.h>
+#include <stdbool.h>
+
+
 
 #define LEFT 75
 #define RIGHT 77
@@ -11,9 +21,6 @@
 #define ARROW 224
 #define SPACEBAR 72
 
-enum ColorType {
-	WHITE = 15, GRAY = 8, BLUE = 9, GREEN = 10
-}COLOR;
 
 
 /*
@@ -35,72 +42,47 @@ _getch()로 버퍼 의 key 값을 전달 받음
 
 */
 
-void textcolor(int colorNum) {
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), colorNum);
-} // 글자 색 
 
-void GotoXY(int x, int y) {
-	COORD Pos;
-	Pos.X = x;
-	Pos.Y = y;
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
-}
 
-void CursorView(char show)
-{
-	CONSOLE_CURSOR_INFO ConsoleCursor;
-	ConsoleCursor.bVisible = show;
-	ConsoleCursor.dwSize = 1;
-	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &ConsoleCursor);
-}
+
 
 int x = 30;
 int y = 7;
 
 int main() {
+
+	CursorView(false); //커서 표시 X 
+	/*
+	sleep(1000);
+	GameTitle();
+	tetis_process();
+	*/
+
+	tetris_process();
+
+
+
+
+
 	enum COLOR color;
 	color = GREEN;
 
 	CursorView(0);
 	GotoXY(x, y);
-	printf("★");
 
 
-	while (1) {
-		if (_kbhit()) {
-			int nkey = _getch();
+	
 
-			if (nkey == SPACEBAR) {
-				printf("space bar");
-			}
-			if (nkey == ARROW) {
-				nkey = _getch();
-				switch (nkey) {
-				case UP:
-					system("cls");
-					GotoXY(x, --y);
-					printf("★");
-					break;
-				case LEFT:
-					system("cls");
-					GotoXY(x = x - 2, y);
-					printf("★");
-					break;
-				case RIGHT:
-					system("cls");
-					GotoXY(x = x + 2, y);
-					printf("★");
-					break;
-				case DOWN:
-					system("cls");
-					GotoXY(x, ++y);
-					printf("★");
-					break;
 
-				}
-			}
-		}
-	}
+
+
+
+
+
+
+
+
+	
 
 	return 0;
 }

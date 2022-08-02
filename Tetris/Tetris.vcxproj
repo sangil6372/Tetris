@@ -21,10 +21,15 @@
   <ItemGroup>
     <ClCompile Include="tetris.c" />
     <ClCompile Include="tetris_Blocks.c" />
+    <ClCompile Include="tetris_Controller.c" />
+    <ClCompile Include="tetris_Screen.c" />
+    <ClCompile Include="tetris_consoleCursor.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="psi_tetirs_Blocks.h" />
+    <ClInclude Include="psi_tetris_consoleCursor.h" />
     <ClInclude Include="psi_tetris_Controller.h" />
+    <ClInclude Include="psi_tetris_Screen.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
